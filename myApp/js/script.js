@@ -8,14 +8,16 @@ const app = createApp({
     },
     methods:{
 
-        /*isTrue(target, object){
-
-            if(this.skills[target][id]){
-                return this.skills[target][id] = false;
-            }else{
-            return this.skills[target][id] = true;
-            }
-        },*/  
+        isTrue(target){
+        
+            const data = { isUse : target.id}
+            const config = { headers: {'Content-Type' : 'multipart/form-data'}}
+            axios.post('http://localhost/php-todo-list-json/api/', data, config )
+            .then(res => {
+                this.skills = res.data;
+            });
+               
+        },  
 
         addNewSkill(){
             const data = { skill: this.newSkill}
