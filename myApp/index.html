@@ -16,11 +16,15 @@
 <body>
     <div id="root">
         <ul>
-            <li v-for="skill in skills" :id="skill.id">{{ skill.name }}</li>
+            <li  v-for="(skill , i) in skills" :id="skill.id">
+                <h3 @click="isTrue(i, skill.isUse)" :class="{ 'do-it' : !skill.isUse}">
+                    {{ skill.name }}
+                </h3>
+            </li>
         </ul>
         <div>
-            <form action="" @submit.prevent="addNewSkill" method="">
-                <input type="text" placeholder="Inserisci altre Skill" v-model="newSkill">
+            <form action="" @submit.prevent="addNewSkill" method="" >
+                <input type="text" placeholder="Inserisci altre Skill" v-model.trim="newSkill">
                 <button type="submit">Inserisci</button>
             </form>
         </div>
