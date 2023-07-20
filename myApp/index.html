@@ -17,7 +17,7 @@
     <div id="root">
         <ul>
             <li  v-for="(skill , i) in skills" :id="skill.id">
-                <h3 @click="isTrue(i, skill.isUse)" :class="{ 'do-it' : !skill.isUse}">
+                <h3 @click="isTrue(i, skill.isUse)" :class="{ 'do-it' : skill.isUse}">
                     {{ skill.name }}
                 </h3>
             </li>
