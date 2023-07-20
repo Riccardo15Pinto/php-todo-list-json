@@ -38,5 +38,16 @@ if (isset($update_data)) {
     file_put_contents($database_path, $json_data);
 }
 
+$delete_data = $_POST['delete'] ?? null;
+
+if (isset($delete_data)) {
+
+    $filter_data = array_filter($tasks, fn ($task) => $task['id'] != $delete_data);
+    $tasks = $filter_data;
+    $json_data = json_encode($tasks);
+
+    file_put_contents($database_path, $json_data);
+}
+
 header('Content-Type: application/json');
 echo $json_data;
