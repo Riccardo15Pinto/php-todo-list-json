@@ -22,13 +22,9 @@ if ($new_element) {
 
     $tasks[] = ["name" => $new_element, "id" => get_new_id($tasks), "isUse" => false];
 
-    $json_tasks = json_encode($tasks);
-    file_put_contents($database_path, $json_tasks);
-    header('Content-Type: application/json');
-    echo $tasks;
-} else {
-
-    header('Content-Type: application/json');
-
-    echo json_encode($tasks);
+    $json_data = json_encode($tasks);
+    file_put_contents($database_path, $json_data);
 }
+
+header('Content-Type: application/json');
+echo $json_data;
