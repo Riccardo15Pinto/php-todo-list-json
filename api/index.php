@@ -26,5 +26,17 @@ if ($new_element) {
     file_put_contents($database_path, $json_data);
 }
 
+$update_data = $_POST['isUse'] ?? null;
+
+if (isset($update_data)) {
+    foreach ($tasks as &$task) {
+        if ($task['id'] == $update_data) {
+            $task['isUse'] = !$task['isUse'];
+        }
+    }
+    $json_data = json_encode($tasks);
+    file_put_contents($database_path, $json_data);
+}
+
 header('Content-Type: application/json');
 echo $json_data;
