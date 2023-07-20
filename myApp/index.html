@@ -20,7 +20,7 @@
                 <h3  :class="{ 'do-it' : skill.isUse}" @click="isTrue(skill)">
                     {{ skill.name }}
                 </h3>
-                <button>Elimina</button>
+                <button @click="removeTask(skill)">Elimina</button>
             </li>
         </ul>
         <div>
