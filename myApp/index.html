@@ -15,7 +15,15 @@
 </head>
 <body>
     <div id="root">
-        <h1>ciao</h1>
+        <ul>
+            <li v-for="skill in skills" :id="skill.id">{{ skill.name }}</li>
+        </ul>
+        <div>
+            <form action="" @submit.prevent="addNewSkill" method="">
+                <input type="text" placeholder="Inserisci altre Skill" v-model="newSkill">
+                <button type="submit">Inserisci</button>
+            </form>
+        </div>
     </div>
     <!-- my js -->
     <script src="../myApp/js/script.js"></script>
