@@ -27,6 +27,15 @@ const app = createApp({
                 this.skills = res.data;
             });
             this.newSkill = '';
+        },
+
+        removeTask(target){
+            const data = { delete : target.id}
+            const config = { headers: {'Content-Type' : 'multipart/form-data'}}
+            axios.post('http://localhost/php-todo-list-json/api/', data, config )
+            .then(res => {
+                this.skills = res.data;
+            });
         }
     },
     created(){
